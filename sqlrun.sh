@@ -1,11 +1,11 @@
 #!/bin/bash
-# Sinn dieses Skript ist es ein einheitliches Interface für alle Skripte zu einem MySQL Server bereitzustellen
+# Reason for this Script is it, to provide a common Interface for all Database Operations to an MySQL Server
 
-# Uebergabeparamter
-datenbankziel=$1
+# Given Parameters
+targetdatabase=$1
 configfilepath=$2
-sqloptionen=$3
-sqlparameter="--defaults-extra-file=$configfilepath $sqloptionen $datenbankziel"
+sqloptions=$3
+sqlparameters="--defaults-extra-file=$configfilepath $sqloptionen $datenbankziel"
 sqlcommand="$4"
 
 output=$(/usr/bin/mysql $sqlparameter <<-EOF
@@ -13,6 +13,5 @@ output=$(/usr/bin/mysql $sqlparameter <<-EOF
        exit
 EOF
 ) 
-
 
 echo "$output"
