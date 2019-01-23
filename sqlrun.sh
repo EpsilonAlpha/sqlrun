@@ -5,10 +5,10 @@
 targetdatabase=$1
 configfilepath=$2
 sqloptions=$3
-sqlparameters="--defaults-extra-file=$configfilepath $sqloptionen $datenbankziel"
+sqlparameters="--defaults-extra-file=$configfilepath $sqloptions $targetdatabase"
 sqlcommand="$4"
 
-output=$(/usr/bin/mysql $sqlparameter <<-EOF
+output=$(/usr/bin/mysql $sqlparameters <<-EOF
        $sqlcommand;
        exit
 EOF
