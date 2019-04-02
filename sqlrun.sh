@@ -8,7 +8,7 @@ sqloptions="$3"
 sqlparameters="--defaults-extra-file=$configfilepath $sqloptions $targetdatabase"
 sqlcommand="$4"
 
-output=$(/usr/bin/mysql $sqlparameters <<-EOF
+output=$(/usr/bin/mysql "$sqlparameters" <<-EOF
        $sqlcommand;
        exit
 EOF
